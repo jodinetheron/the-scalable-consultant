@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
@@ -16,6 +17,16 @@ const Index: React.FC = () => {
       <Process />
       <CTA />
       <Footer />
+      
+      {/* Admin link to logo options, can be removed later */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <Link
+          to="/logo-options"
+          className="text-xs text-gray-400 hover:text-space-blue transition-colors"
+        >
+          View Logo Options
+        </Link>
+      </div>
     </div>
   );
 };
