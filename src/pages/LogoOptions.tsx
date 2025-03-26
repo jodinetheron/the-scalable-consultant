@@ -9,7 +9,7 @@ const LogoOptions = () => {
   const colorVariants = ['default', 'dark', 'white'];
   
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-12">
         <Link 
           to="/" 
@@ -23,23 +23,29 @@ const LogoOptions = () => {
         
         <div className="grid md:grid-cols-2 gap-12">
           {logoStyles.map((style) => (
-            <div key={style} className="border border-gray-200 rounded-lg p-6 shadow-sm">
+            <div key={style} className="border border-gray-200 rounded-lg p-6 shadow-sm bg-white">
               <h2 className="font-display text-xl mb-4 capitalize">{style} Style</h2>
               
               <div className="space-y-8">
-                <div className="p-6 bg-white rounded-md">
+                <div className="p-6 bg-white rounded-md border border-gray-100">
                   <h3 className="text-sm font-medium text-gray-500 mb-4">Default Color</h3>
-                  <Logo logoStyle={style as any} variant="default" />
+                  <div className="flex justify-center">
+                    <Logo logoStyle={style as any} variant="default" className="scale-150 transform" />
+                  </div>
                 </div>
                 
-                <div className="p-6 bg-white rounded-md">
+                <div className="p-6 bg-white rounded-md border border-gray-100">
                   <h3 className="text-sm font-medium text-gray-500 mb-4">Dark Color</h3>
-                  <Logo logoStyle={style as any} variant="dark" />
+                  <div className="flex justify-center">
+                    <Logo logoStyle={style as any} variant="dark" className="scale-150 transform" />
+                  </div>
                 </div>
                 
                 <div className="p-6 bg-space-dark rounded-md">
                   <h3 className="text-sm font-medium text-gray-300 mb-4">White Color (on dark)</h3>
-                  <Logo logoStyle={style as any} variant="white" />
+                  <div className="flex justify-center">
+                    <Logo logoStyle={style as any} variant="white" className="scale-150 transform" />
+                  </div>
                 </div>
               </div>
             </div>

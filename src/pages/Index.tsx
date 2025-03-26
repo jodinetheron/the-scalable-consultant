@@ -18,11 +18,11 @@ const Index: React.FC = () => {
       <CTA />
       <Footer />
       
-      {/* Admin link to logo options, can be removed later */}
+      {/* Logo options link */}
       <div className="fixed bottom-4 right-4 z-50">
         <Link
           to="/logo-options"
-          className="text-xs text-gray-400 hover:text-space-blue transition-colors"
+          className="bg-space-blue text-white px-4 py-2 rounded-md shadow-md hover:bg-space-blue/90 transition-colors text-sm"
         >
           View Logo Options
         </Link>
