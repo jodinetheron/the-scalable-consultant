@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Linkedin } from 'lucide-react';
 import Logo from './Logo';
 
 const NavBar: React.FC = () => {
@@ -52,15 +52,18 @@ const NavBar: React.FC = () => {
             </ul>
           </nav>
 
-          <button
-            className={`px-5 py-2 rounded-full font-medium transition-all border-2 button-glow ${
+          <a
+            href="https://www.linkedin.com/in/jodinetheron/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex items-center gap-2 px-5 py-2 rounded-full font-medium transition-all border-2 button-glow ${
               isScrolled
                 ? 'bg-space-blue text-white border-space-blue hover:bg-space-blue/90'
                 : 'bg-transparent text-white border-white/30 hover:border-white'
             }`}
           >
-            Get Started
-          </button>
+            <Linkedin size={16} /> Let's Connect
+          </a>
           
           <button className="md:hidden" onClick={() => setMobileMenuOpen(true)}>
             <Menu className={isScrolled ? 'text-space-dark' : 'text-white'} />
@@ -93,9 +96,15 @@ const NavBar: React.FC = () => {
                 </li>
               ))}
               <li className="pt-8">
-                <button className="px-8 py-3 rounded-full font-medium bg-space-blue text-white border-2 border-space-blue hover:bg-space-blue/90 transition-all">
-                  Get Started
-                </button>
+                <a
+                  href="https://www.linkedin.com/in/jodinetheron/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-8 py-3 rounded-full font-medium bg-space-blue text-white border-2 border-space-blue hover:bg-space-blue/90 transition-all"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Linkedin size={18} /> Let's Connect
+                </a>
               </li>
             </ul>
           </div>
