@@ -6,32 +6,32 @@ const Features: React.FC = () => {
   const features = [
     {
       icon: Workflow,
-      title: 'Process Mapping',
-      description: 'Map out your end-to-end client processes for clarity and optimization.',
+      title: 'Client Journey Mapping',
+      description: 'Map out your entire client journey to identify friction points and opportunities for improvement.',
       color: 'text-space-blue',
       bgColor: 'bg-space-blue/10',
       delay: '0s'
     },
     {
       icon: Zap,
-      title: 'Smart Automation',
-      description: 'Automate workflows and integrate AI only where it truly adds value.',
+      title: 'SOP Automation',
+      description: 'Automate 80% of manual tasks while maintaining your personal touch with clients.',
       color: 'text-space-purple',
       bgColor: 'bg-space-purple/10',
       delay: '0.1s'
     },
     {
       icon: Compass,
-      title: 'Tech Simplification',
-      description: 'Streamline your tech stack to focus on essential Google Workspace tools.',
+      title: 'Google-Native Stack',
+      description: 'Streamline your tech using tools you already have, focused on Google Workspace integration.',
       color: 'text-space-teal',
       bgColor: 'bg-space-teal/10',
       delay: '0.2s'
     },
     {
       icon: BarChart3,
-      title: 'Marketing Strategy',
-      description: 'Develop actionable, realistic marketing plans with effective tracking.',
+      title: 'AI-Enhanced Operations',
+      description: 'Leverage AI for content creation and business operations that enhance your thought leadership.',
       color: 'text-space-blue',
       bgColor: 'bg-space-blue/10',
       delay: '0.3s'
@@ -46,10 +46,10 @@ const Features: React.FC = () => {
             <span className="text-space-blue text-sm font-medium">Our Services</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-space-dark">
-            Streamlined Solutions for <span className="text-gradient">Scalable Growth</span>
+            From Overwhelmed to <span className="text-gradient">Organized</span>
           </h2>
           <p className="text-gray-600 md:text-lg">
-            We help consultants navigate complexity with clarity, focusing on what truly matters for business growth.
+            With 15+ years optimizing processes and multi-million dollar project management experience, we bring transformation expertise to overwhelmed businesses.
           </p>
         </div>
 

@@ -1,16 +1,16 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 
 interface LogoProps {
   variant?: 'default' | 'dark' | 'white';
   className?: string;
-  logoStyle?: 'orbital' | 'constellation' | 'galaxy' | 'trajectory';
+  logoStyle?: 'rocket';
 }
 
 const Logo: React.FC<LogoProps> = ({ 
   variant = 'default', 
   className = '',
-  logoStyle = 'orbital'
+  logoStyle = 'rocket'
 }) => {
   const getColor = () => {
     switch (variant) {
@@ -24,109 +24,68 @@ const Logo: React.FC<LogoProps> = ({
   };
 
   const renderLogo = () => {
-    switch (logoStyle) {
-      case 'constellation':
-        return (
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className={`${getColor()}`}
-          >
-            <circle cx="20" cy="20" r="3" fill="currentColor" />
-            <circle cx="10" cy="15" r="2" fill="currentColor" />
-            <circle cx="30" cy="15" r="2" fill="currentColor" />
-            <circle cx="15" cy="30" r="2" fill="currentColor" />
-            <circle cx="25" cy="30" r="2" fill="currentColor" />
-            <line x1="20" y1="20" x2="10" y2="15" stroke="currentColor" strokeWidth="1.5" />
-            <line x1="20" y1="20" x2="30" y2="15" stroke="currentColor" strokeWidth="1.5" />
-            <line x1="20" y1="20" x2="15" y2="30" stroke="currentColor" strokeWidth="1.5" />
-            <line x1="20" y1="20" x2="25" y2="30" stroke="currentColor" strokeWidth="1.5" />
-          </svg>
-        );
-      
-      case 'galaxy':
-        return (
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className={`${getColor()}`}
-          >
-            <path
-              d="M20 8C26 8 32 14 32 20C32 26 26 32 20 32C14 32 8 26 8 20C8 14 14 8 20 8Z"
-              stroke="currentColor"
-              strokeWidth="2"
-              fill="none"
-              strokeDasharray="2 2"
-            />
-            <path
-              d="M20 12C24 12 28 16 28 20C28 24 24 28 20 28C16 28 12 24 12 20C12 16 16 12 20 12Z"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              fill="none"
-            />
-            <circle cx="20" cy="20" r="2" fill="currentColor" />
-            <circle cx="26" cy="14" r="1" fill="currentColor" />
-            <circle cx="14" cy="26" r="1" fill="currentColor" />
-          </svg>
-        );
-        
-      case 'trajectory':
-        return (
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className={`${getColor()}`}
-          >
-            <path
-              d="M8 32C8 32 16 28 20 24C24 20 28 12 28 8"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-            <circle cx="8" cy="32" r="2" fill="currentColor" />
-            <circle cx="28" cy="8" r="2" fill="currentColor" />
-            <circle cx="20" cy="20" r="3" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          </svg>
-        );
-      
-      default: // 'orbital'
-        return (
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className={`${getColor()}`}
-          >
-            <circle cx="20" cy="20" r="12" stroke="currentColor" strokeWidth="2" />
-            <path
-              d="M20 8C20 8 14 14 14 20C14 26 20 32 20 32"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-            <path
-              d="M20 8C20 8 26 14 26 20C26 26 20 32 20 32"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-            <circle cx="20" cy="20" r="2" fill="currentColor" />
-            <circle cx="20" cy="8" r="1.5" fill="currentColor" />
-            <circle cx="20" cy="32" r="1.5" fill="currentColor" />
-          </svg>
-        );
-    }
+    // Always return rocket logo since it's our only style now
+    return (
+      <svg
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={`${getColor()}`}
+      >
+        {/* Rocket body */}
+        <path 
+          d="M20 8L14 20V30C14 30 17 32 20 32C23 32 26 30 26 30V20L20 8Z" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+          fill="none"
+        />
+        {/* Rocket window */}
+        <circle 
+          cx="20" 
+          cy="22" 
+          r="2" 
+          stroke="currentColor" 
+          strokeWidth="1.5" 
+          fill="none"
+        />
+        {/* Rocket fins */}
+        <path 
+          d="M14 25H10V29L14 27" 
+          stroke="currentColor" 
+          strokeWidth="1.5" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+          fill="none"
+        />
+        <path 
+          d="M26 25H30V29L26 27" 
+          stroke="currentColor" 
+          strokeWidth="1.5" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+          fill="none"
+        />
+        {/* Rocket flames with gradient */}
+        <defs>
+          <linearGradient id="flameGradient" x1="20" y1="36" x2="20" y2="30" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stopColor="var(--color-space-purple)" />
+            <stop offset="1" stopColor="var(--color-space-blue)" />
+          </linearGradient>
+        </defs>
+        <path 
+          d="M17 30C17 33 18 36 20 36C22 36 23 33 23 30" 
+          stroke="url(#flameGradient)" 
+          strokeWidth="2" 
+          strokeLinecap="round"
+          fill="none" 
+          className="flame"
+        />
+      </svg>
+    );
   };
 
   return (

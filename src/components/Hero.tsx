@@ -50,17 +50,22 @@ const Hero: React.FC = () => {
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 text-white leading-tight animate-fade-in opacity-0" style={{animationDelay: '0.2s'}}>
-            Navigate Your <span className="text-gradient">Business Growth</span> With Expert Guidance
+            We Transform Client Journeys into <span className="text-gradient">Growth Engines</span>
           </h1>
           
           <p className="text-white/80 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed animate-fade-in opacity-0" style={{animationDelay: '0.4s'}}>
-            Helping 6-figure B2B consultants streamline processes, automate workflows, and implement effective marketing strategies with a simplified tech stack.
+            Results-driven onboarding, delivery systems & SOP automation that save you 15+ hours weekly. Helping businesses scale with confidence without losing the human touch.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-fade-in opacity-0" style={{animationDelay: '0.6s'}}>
-            <button className="px-8 py-4 rounded-full bg-space-blue text-white font-medium hover:bg-space-blue/90 transition-all flex items-center gap-2 button-glow">
-              Get Started <ArrowRight size={18} />
-            </button>
+            <a 
+              href="https://www.linkedin.com/in/jodinetheron/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-8 py-4 rounded-full bg-space-blue text-white font-medium hover:bg-space-blue/90 transition-all flex items-center gap-2 button-glow"
+            >
+              Let's Connect <ArrowRight size={18} />
+            </a>
             <button className="px-8 py-4 rounded-full bg-transparent text-white font-medium border-2 border-white/20 hover:border-white/50 transition-all">
               Learn More
             </button>
