@@ -6,12 +6,23 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-white py-12 md:py-20">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
             <Logo />
             <p className="mt-4 text-gray-600 max-w-md">
               Helping founders simplify their tech stack, streamline processes, and implement effective automation and marketing strategies.
             </p>
+          </div>
+          
+          <div>
+            <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              <li><a href="#" className="text-gray-600 hover:text-space-blue transition-colors">Home</a></li>
+              <li><a href="#services" className="text-gray-600 hover:text-space-blue transition-colors">Services</a></li>
+              <li><a href="#process" className="text-gray-600 hover:text-space-blue transition-colors">Our Process</a></li>
+              <li><a href="#about" className="text-gray-600 hover:text-space-blue transition-colors">About Us</a></li>
+              <li><a href="#contact" className="text-gray-600 hover:text-space-blue transition-colors">Contact</a></li>
+            </ul>
           </div>
           
           <div>
