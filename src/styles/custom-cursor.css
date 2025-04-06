@@ -1,0 +1,72 @@
+
+/* Rocket Cursor */
+.rocket-cursor {
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  position: fixed;
+  z-index: 9999;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230077FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z'%3E%3C/path%3E%3Cpath d='m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z'%3E%3C/path%3E%3Cpath d='M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0'%3E%3C/path%3E%3Cpath d='M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.1s ease;
+}
+
+.flame-trail {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,119,255,0.7) 0%, rgba(106,13,173,0.3) 70%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9998;
+  animation: fadeOut 0.8s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+/* Enhanced hover effects */
+a, button, .button-glow {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a:hover, button:hover, .button-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 119, 255, 0.5);
+}
+
+/* Interactive menu items */
+.nav-item:hover {
+  text-shadow: 0 0 8px rgba(0, 119, 255, 0.8), 0 0 12px rgba(0, 119, 255, 0.5);
+}
+
+/* Enhanced button glow */
+.button-glow:hover {
+  box-shadow: 0 0 20px rgba(0, 119, 255, 0.6), 0 0 30px rgba(0, 119, 255, 0.3);
+}
+
+.button-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(0, 119, 255, 0.4), rgba(106, 13, 173, 0.4), rgba(0, 193, 212, 0.4));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.button-glow:hover::after {
+  opacity: 1;
+}

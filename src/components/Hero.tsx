@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -57,7 +56,7 @@ const Hero: React.FC = () => {
             Results-driven onboarding, delivery systems & SOP automation that save you 15+ hours weekly. Helping businesses scale with confidence without losing the human touch.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-fade-in opacity-0" style={{animationDelay: '0.6s'}}>
+          <div className="animate-fade-in opacity-0" style={{animationDelay: '0.6s'}}>
             <a 
               href="https://www.linkedin.com/in/jodinetheron/" 
               target="_blank" 
@@ -66,9 +65,6 @@ const Hero: React.FC = () => {
             >
               Let's Connect <ArrowRight size={18} />
             </a>
-            <button className="px-8 py-4 rounded-full bg-transparent text-white font-medium border-2 border-white/20 hover:border-white/50 transition-all">
-              Learn More
-            </button>
           </div>
         </div>
       </div>

@@ -41,7 +41,7 @@ const NavBar: React.FC = () => {
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className={`font-medium transition-colors hover:text-space-blue ${
+                    className={`font-medium transition-colors hover:text-space-blue nav-item ${
                       isScrolled ? 'text-space-dark' : 'text-white'
                     }`}
                   >
@@ -88,7 +88,7 @@ const NavBar: React.FC = () => {
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className="text-white text-2xl font-medium"
+                    className="text-white text-2xl font-medium nav-item"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}
@@ -100,7 +100,7 @@ const NavBar: React.FC = () => {
                   href="https://www.linkedin.com/in/jodinetheron/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-8 py-3 rounded-full font-medium bg-space-blue text-white border-2 border-space-blue hover:bg-space-blue/90 transition-all"
+                  className="flex items-center justify-center gap-2 px-8 py-3 rounded-full font-medium bg-space-blue text-white border-2 border-space-blue hover:bg-space-blue/90 transition-all button-glow"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <Linkedin size={18} /> Let's Connect
