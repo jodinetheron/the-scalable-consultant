@@ -1,105 +1,76 @@
-
 import React from 'react';
 
 interface LogoProps {
-  variant?: 'default' | 'dark' | 'white';
+  variant?: 'default' | 'dark' | 'white'; // This prop will now primarily affect the TEXT color
   className?: string;
-  logoStyle?: 'rocket';
 }
 
-const Logo: React.FC<LogoProps> = ({ 
-  variant = 'default', 
+const Logo: React.FC<LogoProps> = ({
+  variant = 'default',
   className = '',
-  logoStyle = 'rocket'
 }) => {
-  const getColor = () => {
+  // This function now primarily determines the TEXT color
+  const getTextColor = () => {
     switch (variant) {
       case 'white':
         return 'text-white';
       case 'dark':
         return 'text-space-dark';
       default:
-        return 'text-space-blue';
+        // Use a default text color that works with the gradient icon
+        // Let's assume space-dark is a good default text color here
+        return 'text-space-dark';
     }
   };
 
   const renderLogo = () => {
-    // Always return rocket logo since it's our only style now
+    // Define a unique ID for the gradient
+    const gradientId = "rocketStrokeGradient";
+
     return (
       <svg
+        xmlns='http://www.w3.org/2000/svg'
+        viewBox='0 0 24 24'
+        fill='none'
+        // Stroke is now handled by the gradient reference below
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        // Keep width/height for sizing, className might be used for layout/margin
         width="40"
         height="40"
-        viewBox="0 0 40 40"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className={`${getColor()}`}
+        // className is removed from SVG itself as color comes from gradient
       >
-        {/* Rocket body */}
-        <path 
-          d="M20 8L14 20V30C14 30 17 32 20 32C23 32 26 30 26 30V20L20 8Z" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-          fill="none"
-        />
-        {/* Rocket window */}
-        <circle 
-          cx="20" 
-          cy="22" 
-          r="2" 
-          stroke="currentColor" 
-          strokeWidth="1.5" 
-          fill="none"
-        />
-        {/* Rocket fins */}
-        <path 
-          d="M14 25H10V29L14 27" 
-          stroke="currentColor" 
-          strokeWidth="1.5" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-          fill="none"
-        />
-        <path 
-          d="M26 25H30V29L26 27" 
-          stroke="currentColor" 
-          strokeWidth="1.5" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-          fill="none"
-        />
-        {/* Rocket flames with gradient */}
+        {/* Define the gradient */}
         <defs>
-          <linearGradient id="flameGradient" x1="20" y1="36" x2="20" y2="30" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="var(--color-space-purple)" />
-            <stop offset="1" stopColor="var(--color-space-blue)" />
+          <linearGradient id={gradientId} x1="0%" y1="0%" x2="0%" y2="100%">
+            {/* Attempt to use CSS variables, fallback to hex if needed */}
+            {/* Adjust these colors to match your desired text-gradient */}
+            <stop offset="0%" stopColor="var(--color-space-blue, #0077FF)" />
+            <stop offset="100%" stopColor="var(--color-space-purple, #6A0DAD)" />
+            {/* --color-space-purple was just a guess, replace #6A0DAD if needed */}
           </linearGradient>
         </defs>
-        <path 
-          d="M17 30C17 33 18 36 20 36C22 36 23 33 23 30" 
-          stroke="url(#flameGradient)" 
-          strokeWidth="2" 
-          strokeLinecap="round"
-          fill="none" 
-          className="flame"
-        />
+
+        {/* Apply the gradient stroke to all paths */}
+        <path d='M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z' stroke={`url(#${gradientId})`}></path>
+        <path d='m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z' stroke={`url(#${gradientId})`}></path>
+        <path d='M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0' stroke={`url(#${gradientId})`}></path>
+        <path d='M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5' stroke={`url(#${gradientId})`}></path>
       </svg>
     );
   };
 
+  // This part uses getTextColor() for the text spans
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       <div className="relative">
         {renderLogo()}
-        <div className="absolute top-[10px] left-[10px] h-20 w-20 animate-orbit opacity-0">
-          <div className="absolute top-0 left-0 h-2 w-2 rounded-full bg-space-teal"></div>
-        </div>
       </div>
       <div className="font-display font-semibold text-xl leading-none">
-        <span className={getColor()}>The </span>
-        <span className={getColor()}>Scalable</span>
-        <div className={getColor()}>Consultant</div>
+        <span className={getTextColor()}>The </span>
+        <span className={getTextColor()}>Scalable</span>
+        <div className={getTextColor()}>Consultant</div>
       </div>
     </div>
   );
